@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{123DE040-A4A0-4FE3-9A27-EF68FED843EA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Azure.Cosmos.Samples.Table</RootNamespace>
+    <AssemblyName>Microsoft.Azure.Cosmos.Samples.Table</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <SigningType>Test</SigningType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Build.props))\build.props" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(DocDBRoot)\SDK\Table\.net\Lib\WindowsDesktop.Split\Table\Microsoft.Azure.CosmosDB.Table.csproj">
+      <Project>{497f211f-60bc-4b89-b199-2d1deb7bc32e}</Project>
+      <Name>Microsoft.Azure.CosmosDB.Table</Name>
+    </ProjectReference>
+    <Reference Include="$(NugetPath_Microsoft_Azure_KeyVault_Core)\lib\net40\Microsoft.Azure.KeyVault.Core.dll">
+      <Private>True</Private>
+      <Name>Microsoft.Azure.KeyVault.Core</Name>
+    </Reference>
+    <Reference Include="$(NugetPath_Microsoft_Azure_Storage_Common)\lib\net45\Microsoft.Azure.Storage.Common.dll">
+      <Private>True</Private>
+      <Name>Microsoft.Azure.Storage.Common</Name>
+    </Reference>
+    <Reference Include="$(NugetPath_Newtonsoft_Json)\lib\net45\Newtonsoft.Json.dll">
+      <Private>True</Private>
+      <Name>Newtonsoft.Json</Name>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="BasicWorker.cs" />
+    <Compile Include="ConflictWorker.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="MultiMasterScenario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild"></Target>
+</Project>
