@@ -4,7 +4,7 @@ platforms: dotnet
 api: Table
 ---
 
-# Table Multi-Master Sample for .NET
+# Multi-Master Table API Sample for .NET
 
 This sample demonstrates some multi-master scenarios over the Cosmos DB Table API.
 
