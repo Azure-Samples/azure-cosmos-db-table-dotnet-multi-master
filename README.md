@@ -1,7 +1,11 @@
 ---
-services: cosmos-db
-platforms: dotnet
-api: Table
+page_type: sample
+languages:
+- csharp
+products:
+- azure
+description: "This sample demonstrates some multi-master scenarios over the Cosmos DB Table API."
+urlFragment: azure-cosmos-db-table-dotnet-multi-master
 ---
 
 # Multi-Master Table API Sample for .NET
